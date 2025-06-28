@@ -58,7 +58,7 @@ const player = new Fighter({
     position: { x: 0, y: 0 },
     velocity: { x: 0, y: 0 },
     offSet: { x: 215, y: 157 },
-    imageSrc: "./assets/samuraiMack/idle.png",
+    imageSrc: "./assets/samuraiMack/Idle.png",
     frameMax: 8,
     scale: 2.5,
     spriteFolder: "samuraiMack",
@@ -98,7 +98,7 @@ velocity:{
     y: 0
 },
 color: "blue",
- imageSrc: "./assets/kenji/idle.png",
+ imageSrc: "./assets/kenji/Idle.png",
     frameMax: 4,
     scale: 2.5,
      offSet: { x: 215, y: 157 },
