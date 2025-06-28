@@ -109,7 +109,7 @@ color: "blue",
     Jump: 2,
     Fall: 2,
     Attack1: 4,
-    TakeHit: 3,
+    Takehit: 3,
      Death: 7,
      Attack2: 4
   },
@@ -247,7 +247,7 @@ function animate() {
             enemy.switchSprite("Death");
          }
          else{
-            enemy.switchSprite("TakeHit");
+            enemy.switchSprite(enemy.sprites.Takehit ? "Takehit" : "TakeHit");
          }
         }
 
@@ -265,7 +265,8 @@ function animate() {
             enemy.switchSprite("Death");
          }
          else{
-            enemy.switchSprite("TakeHit");
+            enemy.switchSprite(enemy.sprites.Takehit ? "Takehit" : "TakeHit");
+
          }
         }
      if(player.isAttackingLeg && player.currentFrame === 4){

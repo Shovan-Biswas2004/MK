@@ -103,7 +103,7 @@ class Fighter extends Sprite {
   this.animationLock = false;
   this.isAttackingHand = false;
 }
-    if (this.currentState === "TakeHit" && this.currentFrame === this.frameMax - 1) {
+    if ((this.currentState === "Takehit" || this.currentState === "TakeHit") && this.currentFrame === this.frameMax - 1) {
         this.animationLock = false;
       }
     
@@ -171,7 +171,7 @@ class Fighter extends Sprite {
     jump: 2,
     fall: 2,
     Attack1: 6
-    // Add more as needed, like 'TakeHit', 'Death', etc.
+    // Add more as needed, like 'takeHit', 'Death', etc.
   };
 
   const frames = this.sprites[spriteName];
@@ -195,7 +195,7 @@ class Fighter extends Sprite {
   this.framesElapsed = 0;
   this.currentState = spriteName;
 
-  if (spriteName === "Attack1"  || spriteName === "TakeHit" || spriteName === "Attack2") {
+  if (spriteName === "Attack1"  || spriteName === "TakeHit" || spriteName === "Attack2" || spriteName === "Takehit") {
     this.animationLock = true;
   }
 }
