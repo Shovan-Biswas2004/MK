@@ -97,17 +97,17 @@ class Fighter extends Sprite {
   }
 
     if (
-  (this.currentState === "attack1" || this.currentState === "attack2") &&
+  (this.currentState === "Attack1" || this.currentState === "Attack2") &&
   this.currentFrame === this.frameMax - 1
 ) {
   this.animationLock = false;
   this.isAttackingHand = false;
 }
-    if (this.currentState === "takehit" && this.currentFrame === this.frameMax - 1) {
+    if (this.currentState === "TakeHit" && this.currentFrame === this.frameMax - 1) {
         this.animationLock = false;
       }
     
-    if (this.currentState === "death" && this.currentFrame === this.frameMax - 1) {
+    if (this.currentState === "Death" && this.currentFrame === this.frameMax - 1) {
     this.dead = true;
     this.velocity.x = 0;
     this.velocity.y = 0;
@@ -144,9 +144,9 @@ class Fighter extends Sprite {
 
   attackHand() {
     if (this.spriteFolder === "kenji") {
-    this.switchSprite("attack2"); // enemy uses attack2
+    this.switchSprite("Attack2"); // enemy uses Attack2
   } else {
-    this.switchSprite("attack1"); // player uses attack1
+    this.switchSprite("Attack1"); // player uses Attack1
   }
     this.isAttackingHand = true;
     
@@ -160,9 +160,9 @@ class Fighter extends Sprite {
   }
 
   switchSprite(spriteName) {
-  if (this.animationLock && this.currentState === "attack1") return;
-  if (this.animationLock && this.currentState === "takehit") return;
-  if (this.currentState === "death") return;
+  if (this.animationLock && this.currentState === "Attack1") return;
+  if (this.animationLock && this.currentState === "TakeHit") return;
+  if (this.currentState === "Death") return;
 
   // Define all sprite frame counts
   const spriteConfig = {
@@ -170,8 +170,8 @@ class Fighter extends Sprite {
     run: 8,
     jump: 2,
     fall: 2,
-    attack1: 6
-    // Add more as needed, like 'takeHit', 'death', etc.
+    Attack1: 6
+    // Add more as needed, like 'TakeHit', 'Death', etc.
   };
 
   const frames = this.sprites[spriteName];
@@ -195,7 +195,7 @@ class Fighter extends Sprite {
   this.framesElapsed = 0;
   this.currentState = spriteName;
 
-  if (spriteName === "attack1"  || spriteName === "takehit" || spriteName === "attack2") {
+  if (spriteName === "Attack1"  || spriteName === "TakeHit" || spriteName === "Attack2") {
     this.animationLock = true;
   }
 }
