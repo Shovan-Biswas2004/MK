@@ -63,14 +63,14 @@ const player = new Fighter({
     scale: 2.5,
     spriteFolder: "samuraiMack",
   sprites: {
-    idle: 8,
-    run: 8,
-    jump: 2,
-    fall: 2,
-    attack1: 6,
-    takehit: 4,
-    death: 6,
-    attack2: 6
+    Idle: 8,
+    Run: 8,
+    Jump: 2,
+    Fall: 2,
+    Attack1: 6,
+    TakeHit: 4,
+    Death: 6,
+    Attack2: 6
     
   },
   attackBox: {
@@ -104,14 +104,14 @@ color: "blue",
      offSet: { x: 215, y: 157 },
     spriteFolder: "kenji",
   sprites: {
-    idle: 4,
-    run: 8,
-    jump: 2,
-    fall: 2,
-    attack1: 4,
-    takehit: 3,
-     death: 7,
-     attack2: 4
+    Idle: 4,
+    Run: 8,
+    Jump: 2,
+    Fall: 2,
+    Attack1: 4,
+    TakeHit: 3,
+     Death: 7,
+     Attack2: 4
   },
   attackBox: {
     offSet: {
@@ -200,20 +200,20 @@ function animate() {
      if (!player.animationLock) {
      if(keys.a.pressed && lastKey === "a"){
         player.velocity.x= -3;
-        player.switchSprite("run");
+        player.switchSprite("Run");
      }
      else if(keys.d.pressed && lastKey === "d"){
         player.velocity.x= 3;
-        player.switchSprite("run");
+        player.switchSprite("Run");
      }
      else if(player.velocity.y<0){
-        player.switchSprite("jump");
+        player.switchSprite("Jump");
      }
      else if(player.velocity.y>0){
-        player.switchSprite("fall");
+        player.switchSprite("Fall");
      }
       else {
-    player.switchSprite("idle");
+    player.switchSprite("Idle");
      }
     }
 
@@ -221,20 +221,20 @@ function animate() {
      if (!enemy.animationLock) {
      if(keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft"){
         enemy.velocity.x= -3;
-         enemy.switchSprite("run");
+         enemy.switchSprite("Run");
      }
      else if(keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight"){
         enemy.velocity.x= 3;
-        enemy.switchSprite("run");
+        enemy.switchSprite("Run");
      }
       else if(enemy.velocity.y<0){
-        enemy.switchSprite("jump");
+        enemy.switchSprite("Jump");
      }
      else if(enemy.velocity.y>0){
-        enemy.switchSprite("fall");
+        enemy.switchSprite("Fall");
      }
      else{
-         enemy.switchSprite("idle");
+         enemy.switchSprite("Idle");
      }
      }
      // collision
@@ -244,10 +244,10 @@ function animate() {
          enemy.health -= 10
          enemyHealth.style.width = enemy.health + "%";
          if(enemy.health <=0 ){
-            enemy.switchSprite("death");
+            enemy.switchSprite("Death");
          }
          else{
-            enemy.switchSprite("takehit");
+            enemy.switchSprite("TakeHit");
          }
         }
 
@@ -262,10 +262,10 @@ function animate() {
           enemy.health -= 20
          enemyHealth.style.width = enemy.health + "%";
           if(enemy.health <=0 ){
-            enemy.switchSprite("death");
+            enemy.switchSprite("Death");
          }
          else{
-            enemy.switchSprite("takehit");
+            enemy.switchSprite("TakeHit");
          }
         }
      if(player.isAttackingLeg && player.currentFrame === 4){
@@ -278,10 +278,10 @@ function animate() {
          player.health -= 10
          playerHealth.style.width = player.health + "%";
          if(player.health <=0 ){
-            player.switchSprite("death");
+            player.switchSprite("Death");
          }
          else{
-            player.switchSprite("takehit");
+            player.switchSprite("TakeHit");
          }
         }
 
@@ -295,10 +295,10 @@ function animate() {
           player.health -= 20
          playerHealth.style.width = player.health + "%";
          if(player.health <=0 ){
-            player.switchSprite("death");
+            player.switchSprite("Death");
          }
          else{
-            player.switchSprite("takehit");
+            player.switchSprite("TakeHit");
          }
         }
      if(enemy.isAttackingLeg && enemy.currentFrame === 2){
@@ -332,19 +332,19 @@ window.addEventListener("keydown", (event)=>{
         break;
     case " ":
         player.attackHand();
-        player.switchSprite("attack1");
+        player.switchSprite("Attack1");
         break;
     case "Enter":
         enemy.attackHand();
-         enemy.switchSprite("attack2");
+         enemy.switchSprite("Attack2");
         break;
     case "f":
         player.attackLeg();
-         player.switchSprite("attack2");
+         player.switchSprite("Attack2");
         break;
     case "0":
         enemy.attackLeg();
-        enemy.switchSprite("attack1");
+        enemy.switchSprite("Attack1");
         break;
     
 
